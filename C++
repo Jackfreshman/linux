@@ -1,0 +1,19 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+
+{	
+
+	double r=1,area;//r赋值的时候是被赋值的书，r不赋值的时候是一个随机数
+
+	const double PI=3.14159;
+
+	area=PI*r*r;
+
+	cout<<"Area="<<area<<",its radius is :"<<r<<endl;
+
+	return 0;
+
+}
