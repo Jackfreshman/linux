@@ -1,0 +1,67 @@
+/*在scanf输入完数据后不需要换行符号，接下来的printf也会自动起一行*/
+
+
+
+/*题1：写出运行结果*/
+
+#include<stdio.h>
+
+void main()
+
+{
+
+	int a=1234;
+
+	float f=1234.456;
+
+	char ch='a';
+
+	printf("%8d,%2d\n",a,a);
+
+	printf("%f,%.2f\n",f,f);
+
+	printf("%3c\n",ch);
+
+}
+
+/*题二：写出运行结果*/
+
+
+
+#include<stdio.h>//逗号运算符
+
+void main()
+
+{
+
+	int a;
+
+	printf("%d\n",(a=3*5,a*4,a+5));
+
+
+
+}
+
+/*题3：写出运行结果*/
+
+#include<stdio.h>
+
+void main()
+
+{
+
+	int x=1,a=0,b=0;
+
+	switch(x)
+
+	{	case 0:b++;
+
+	case 1:a++;
+
+	case 2:a++;b++;}
+
+
+
+	printf("a=%d,b=%d\n",a,b);
+
+}
