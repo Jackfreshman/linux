@@ -1,0 +1,39 @@
+/* Shell 排序法 */
+
+#include <stdio.h>
+
+
+
+void sort(int v[],int n)
+
+{
+
+     int gap,i,j,temp;
+
+     for(gap=n/2;gap>0;gap /= 2) /* 设置排序的步长，步长gap每次减半，直到减到1 */
+
+     {
+
+          for(i=gap;i<n;i++)  /* 定位到每一个元素 */
+
+          {
+
+               for(j=i-gap;(j >= 0) && (v[j] > v[j+gap]);j -= gap ) /* 比较相距gap远的两个元素的大小，根据排序方向决定如何调换 */
+
+               {
+
+                temp=v[j];
+
+                v[j]=v[j+gap];
+
+                v[j+gap]=temp;
+
+               }
+
+          }
+
+     }
+
+}
+
+
