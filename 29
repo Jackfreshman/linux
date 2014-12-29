@@ -1,0 +1,22 @@
+#include "Stdio.h"
+
+#include "Math.h"
+
+int main(void)
+
+{
+
+   int n,a,b,c,d;
+
+   for(n=100;n<=999;n++)
+
+   {a=n%10;/*gewei*/
+
+   b=n/10%10;/*shiwei*/
+
+   c=n/100;/*baiwei*/
+
+    if(n==pow(a,3)+pow(b,3)+pow(c,3))
+
+    printf("%d\n",n);}
+
