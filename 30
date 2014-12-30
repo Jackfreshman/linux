@@ -1,0 +1,257 @@
+#include  <stdio.h>
+
+#include <conio.h>
+
+int  monthday[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+
+
+
+char  monthname[13][6]={"","JAN","FEB","MAR","APR","MAY","JUNE","JULY",
+
+         "AUG","SEP","OCT","NOV","DEC" };
+
+
+
+char  weekday[7][6]={"SUN","MON","TUE","WED","THU","FRI","STA"};
+
+
+
+/*定义month_odd[][]存储奇数月的日期，month_even[][]存储偶数月的日期*/
+
+int   month_odd[6][7],month_even[6][7];
+
+
+
+/* 计算输入的年份是否是闰年,是闰年将2月份设为29天 */
+
+
+
+void  leapyear(int  year)
+
+   {
+
+      if((year%4==0)&&(year%100!=0) ||(year%400==0))
+
+      monthday[2]=29;
+
+
+
+   }
+
+
+
+/* 打印输入年的日历 */
+
+void  print2(int  month,int  line)
+
+{ 
+
+    int  i,j,x;
+
+
+
+    printf("***  %s  ***            ",monthname[month]);    /*输出日历上相应的月份名称*/
+
+    printf("                ***  %s  *** \n",monthname[month+1]);
+
+
+
+ /*输出日历上的星期名称   */
+
+   for(x=0;x<=1;x++)
+
+     { for(i=0;i<=6;i++)
+
+        printf("%5s",weekday[i]);
+
+        printf("     ");
+
+     }
+
+   printf("\n");
+
+
+
+  /* 输出连续两个月的日历  */
+
+   for(i=0;i<=line;i++)
+
+   {
+
+       { for(j=0;j<=6;j++)
+
+           if(month_odd[i][j]==0)   /*如果奇数月相应的元素值为0，*/
+
+               printf("     ");     /*说明该星期无日子，以5个空格代替（%5d）*/
+
+           else
+
+               printf("%5d",month_odd[i][j]); /*如果元素的值不为0，则在相应位置输出该元素*/
+
+        }
+
+
+
+       printf("     "); /*5个空格*/
+
+
+
+       { for(j=0;j<=6;j++)
+
+           if(month_even[i][j]==0)
+
+              printf("     ");    /*5个空格*/
+
+           else
+
+              printf("%5d",month_even[i][j]);
+
+       }
+
+
+
+      printf("\n");   /*输出完一行之后，换行输出下一行*/
+
+   }
+
+}
+
+
+
+/* 生成输入年的日历 */
+
+void  calendar(int  year)
+
+{
+
+  int  month;
+
+  int  todayweek,today,i,j;
+
+  int  odd_line,even_line;     /*分别记录奇数月和偶数月的行数*/
+
+
+
+  /*确定当年1月1日是星期几*/
+
+
+
+  todayweek=(year+(year-1)/4-(year-1)/100+(year-1)/400)%7;
+
+
+
+   /*闰年时将2月份设为29天*/
+
+   leapyear(year);
+
+
+
+  /* 连续生成12个月的日历 */
+
+  for(month=1;month<=12;month++)
+
+   {
+
+       today=1;    /*当月第1天*/
+
+       odd_line=0; /*当月第1行*/
+
+       for(i=0;i<=5;i++)     /*初始化数组，即清除前一个奇数月的日期数据*/
+
+         for(j=0;j<=6;j++)
+
+           month_odd[i][j]=0;
+
+       while(today<=monthday[month])
+
+        {
+
+          month_odd[odd_line][todayweek]=today;    /*产生奇数月的日历*/
+
+          todayweek++;
+
+          today++;
+
+          if(todayweek==7)
+
+           {
+
+             todayweek=0;
+
+             odd_line++;
+
+           }
+
+        }
+
+
+
+         month++;          /*月数加1，产生偶数月的日历*/
+
+         today=1;          /*当月第1天*/
+
+         even_line=0;      /*当月第1行*/
+
+       for(i=0;i<=5;i++)    /*初始化数组，即清除前一个偶数月的日期数据*/
+
+         for(j=0;j<=6;j++)
+
+           month_even[i][j]=0;
+
+       while(today<=monthday[month])
+
+        {
+
+          month_even[even_line][todayweek]=today; /*  产生偶数月的日历*/
+
+          todayweek++;
+
+          today++;
+
+          if(todayweek==7)
+
+           {
+
+             todayweek=0;
+
+             even_line++;
+
+           }
+
+        }
+
+
+
+   if(month%2==0)
+
+      print2(month-1, odd_line>even_line?odd_line:even_line);  /*将相邻两个月中占用行数最多的传递过去*/
+
+   if(month==4)    /* 生成4个月的日历之后，停顿*/
+
+      getch();
+
+  }
+
+
+
+}
+
+
+
+main()
+
+{
+
+  int  year;
+
+  printf("Input year: ");
+
+  scanf("%d",&year);
+
+  printf("==========    year    %d    ==========\n",year);   /* 输出输入的年份*/
+
+  calendar(year);
+
+  getch();
+
+}
