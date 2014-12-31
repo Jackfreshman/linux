@@ -1,0 +1,38 @@
+nclude<stdio.h>//
+void main()
+{int i;
+    printf("the ASCII icon\n");
+for(i=0;i<76;i++)
+/*第一部分打印表头*/
+    {if(i==0) printf("%c",213);
+        else if(i==15||i==30||i==45||i==60) printf("%c",209);
+        else if(i==75) printf("%c",184);
+        else printf("%c",205);
+     if(i==75)  printf("\n");}
+/*第二部分打印表头及表头的表格*/
+    printf("%c DEC  HEX  ASC%c DEC  HEX  ASC%c DEC  HEX  ASC%c DEC  HEX  ASC%c DEC  HEX  ASC%c\n",179,179,179,179,179,179);
+for(i=0;i<76;i++)
+    {if(i==0)
+     printf("%c",198);
+        else if(i==15||i==30||i==45||i==60) printf("%c",216);
+        else if(i==75)printf("%c",181);
+        else printf("%c",205);
+    if(i==75)
+        printf("\n");}
+/*第三部分打印的是256个ASCII */
+    for(i=0;i<=36;i++)
+    {    if(i==1||i==7||i==8||i==9||i==10||i==11||i==12||i==13||i==26)
+        printf("%c %3d  %3o  n/a",179,i,i,i);
+        else printf("%c %3d  %3o  %3c",179,i,i,i);
+        printf("%c %3d  %3o  %3c%c %3d  %3o  %3c%c %3d  %3o  %3c%c %3d  %3o  %3c%c\n",179,i+51,i+51,i+51,179,i+102,i+102,i+102,179,i+153,i+153,i+153,179,i+204,i+204,i+204,179);
+        }
+/*第四部分打印的是表尾*/
+        for(i=0;i<76;i++)
+        {if(i==0) printf("%c",212);
+        else if(i==15||i==30||i==45||i==60) printf("%c",207);
+        else if(i==75) printf("%c",190);
+        else printf("%c",205);
+     if(i==75)  printf("\n");
+}
+}
+
