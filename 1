@@ -1,0 +1,43 @@
+#include<stdio.h>//递归法求n!
+
+//#include<math.h>
+
+void main()
+
+{	
+
+	long fac(int n);
+
+	int n,y;
+
+	printf("please input an integer number:");
+
+	scanf("%d",&n);
+
+	y=fac(n);
+
+	printf("%d!=%ld\n",n,y);
+
+}
+
+long fac(int n)
+
+{	int f;
+
+	if(n<0)
+
+		printf("n<0,data error");
+
+	if(n==0,n==1)
+
+		f=1;
+
+	else
+
+	f=fac(n-1)*n;
+
+	return f;
+
+}
+
+//递归函数fac，n是你输入的数，就这两个主干。
