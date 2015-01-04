@@ -1,0 +1,47 @@
+#include<stdio.h>//
+
+#include<stdlib.h>
+
+void main()
+
+{	system("color 2f");
+
+	int i;
+
+	printf("ASCII代码对照表\n");
+
+	for(i=0;i<80;i++)
+
+		printf("%c",95);
+
+	
+
+	
+
+	printf("%c DEC  HEX  ASC %c DEC  HEX  ASC %c DEC  HEX  ASC %c DEC  HEX  ASC%c DEC  HEX  ASC%c\n",124,124,124,124,124,124);
+
+	for(i=0;i<80;i++)
+
+		printf("%c",95);
+
+	for(i=0;i<=53;i++)
+
+	{{	if(i==1||i==7||i==8||i==9||i==10||i==11||i==12||i==13)
+
+		printf("%c  %3d  %3o  n/a",124,i,i,i);
+
+		else printf("%c %3d  %3o  %3c ",124,i,i,i);
+
+		printf("%c %3d  %3o  %3c %c %3d  %3o  %3c %c %3d  %3o  %3c %c %3d  %3o  %3c%c\n",124,i+54,i+54,i+54,124,i+108,i+108,i+108,124,i+162,i+162,i+162,124,i+270,i+270,i+270,124);
+
+		}
+
+		if(i==53)printf("\n");
+
+		}
+
+		for(i=0;i<80;i++)
+
+		printf("%c",95);	
+
+}
