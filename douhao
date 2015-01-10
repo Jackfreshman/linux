@@ -1,0 +1,13 @@
+#include<stdio.h>//添加循环语句，计算并输出1～50之间的奇数的和
+
+void main()
+
+{
+
+	int a;
+
+	printf("%d\n",(a=3*5,a*4,a+5));
+
+
+
+}
